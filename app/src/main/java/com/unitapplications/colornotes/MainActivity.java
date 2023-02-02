@@ -24,7 +24,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton ft_newNote;
-    SearchView searchView;
+    androidx.appcompat.widget.SearchView searchView;
     RecyclerView recyclerView;
     AdapterClass adapterClass;
     private ArrayList<Models> modelArrayList;
@@ -69,16 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
         //this is floating button to add new note
         ft_newNote = findViewById(R.id.ft_newNote);
-        ft_newNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(
-                        MainActivity.this, writeNoteActivity.class);
-                startActivity(intent);
-            }
-        });
+        ft_newNote.setOnClickListener(view -> startActivity(new Intent(MainActivity.this,writeNoteActivity.class)));
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             //this is search method that do search simple!
             @Override
             public boolean onQueryTextSubmit(String s) {
